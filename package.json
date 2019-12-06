@@ -1,0 +1,21 @@
+{
+  "name": "tz-project",
+  "version": "1.0.0",
+  "description": "这是潭州前端的答题系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Gin",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.2",
+    "mongoose": "^5.7.12"
+  },
+  "devDependencies": {}
+}
