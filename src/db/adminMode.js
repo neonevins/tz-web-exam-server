@@ -19,13 +19,19 @@ async function checkUser(query){
     })
   }
 
+  // 权限不足
+  if(data.disabled){
+    return Promise.resolve({
+      code: 4,
+      message: "权限不足,禁止访问"
+    })
+  }
   //密码错误
   if(data.password !== password){
     return Promise.resolve({
       code: 3,
       message: "密码错误"
     })
-
   // 登录成功
   }else{
     return Promise.resolve({

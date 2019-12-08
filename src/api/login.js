@@ -22,9 +22,10 @@ function login(req, res) {
       if(msg.code === 0){
         console.log(hash)
         res.cookie("token",hash,{maxAge: 900000, httpOnly: true});
-
+        res.send(Object.assign(msg, {data: {cookie: {token: hash}}}))
+      }else{
+        res.send(Object.assign(msg, {data: {cookie: {token: ""}}}))
       }
-      res.send(Object.assign(msg, {data: {cookie: {token: hash}}}))
     })
 }
 
