@@ -1,19 +1,20 @@
 const express = require("express")
-const helmet = require("helmet")
 const path = require("path")
+//安全性相关的HTTP标头安全性相关的HTTP标头
+const helmet = require("helmet")
+const app = express()
+app.use(helmet())
 const cookieParser = require("cookie-parser")
-// const session = require('express-session')
+app.use(cookieParser())
+
 const router = require("./src/routers")
 
-const app = express()
-//安全性相关的HTTP标头安全性相关的HTTP标头
-
+// 缓存静态资源
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'publicDoc')))
 
 
-app.use(helmet())
-app.use(cookieParser())
+
 // 允许跨域
 app.all("*",function (req, res, next) {
   res.header({
@@ -23,7 +24,7 @@ app.all("*",function (req, res, next) {
     'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
     'Content-Type': 'application/json; charset=utf-8'
   })
-  if( req.method == "OPTIONS" ) {
+  if( req.method === "OPTIONS" ) {
     res.send(200)
     console.log("has option")
   } else {
@@ -34,7 +35,6 @@ app.all("*",function (req, res, next) {
 app.use(router)
 
 
-
-// 缓存静态资源
-
-app.listen(8030)
+app.listen(8030, ()=>{
+  console.log("服务器启动, 端口 8030 开启")
+})
