@@ -2,6 +2,13 @@ const adminHash = require('./adminHash')
 
 function checktoken(req, res) {
    adminHash.then(hash => {
+     if(!hash){
+       res.send({
+         code: 4,
+         message: "用户被禁用"
+       })
+       return
+     }
      if(req.query.token === hash) {
        res.send({
          code: 0,

@@ -1,8 +1,8 @@
-const userMode = require("../db/adminMode")
+const userMode = require("../db/userMode")
 
 function login(req, res) {
   // TODO 判断用户权限
-  // console.log(req.h)
+
   userMode.addUser(req.query)
   .then((msg)=>res.send(msg))
 }

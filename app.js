@@ -13,8 +13,6 @@ const router = require("./src/routers")
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'publicDoc')))
 
-
-
 // 允许跨域
 app.all("*",function (req, res, next) {
   res.header({
@@ -33,7 +31,6 @@ app.all("*",function (req, res, next) {
 })
 
 app.use(router)
-
 
 app.listen(8030, ()=>{
   console.log("服务器启动, 端口 8030 开启")
