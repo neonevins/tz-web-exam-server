@@ -10,8 +10,10 @@ app.use(cookieParser())
 const router = require("./src/routers")
 
 // 缓存静态资源
+app.use(express.static('uploads'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'publicDoc')))
+
 
 // 允许跨域
 app.all("*",function (req, res, next) {

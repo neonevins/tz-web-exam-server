@@ -36,7 +36,12 @@ code: 操作状态:
 ```json
 {
   code: 0,
-  message: "登录成功"
+  message: "登录成功",
+  data: {
+    cookie: {
+      token: "f65b80f3153b3de955801"
+    }
+  }
 }
 ```
 
@@ -98,6 +103,8 @@ code: 操作状态:
 
   **必选参数:**  无
 
+**注意:**  如果请求cookie携带了token, 以cookie为准
+
   **可选参数**: 
 
 | 属性  | 值   | 是否必选 |
@@ -107,3 +114,32 @@ code: 操作状态:
 |       |      |          |
 
   **调用例子**: /api/checktoken?token=812j91j92je91j2e8
+
+## 上传头像
+
+**方式**: POST
+
+  **接口地址**: /api/upload
+
+  **必选参数:**  
+
+| 属性 | 值   | 是否必选 |
+| ---- | ---- | -------- |
+| file | file | Y        |
+
+  **注意:** 需要cookie携带token做用户验证, 否则上传不成功( :with-credentials="true")
+
+**返回示例: ** 
+
+```json
+{
+  code: 0,
+  message: "上传成功",
+  data: {
+    cookie: {
+      avatarPath: "/avatar/1576078385826.jpg"
+    }
+  }
+}
+```
+

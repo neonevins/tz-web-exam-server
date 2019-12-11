@@ -14,7 +14,10 @@ router.get("/api/logout", require("./api/logout.js"))
 // 用户登录验证
 router.get("/api/login", require("./api/login.js"))
 
-// 
+// 上传图片
+const {upload, uploadHandle} = require("./api/upload.js")
+router.post("/api/upload", upload.single("file"), uploadHandle)
 
+// TODO 查询用户信息
 
 module.exports = router

@@ -1,2 +1,0 @@
-webpackJsonp([1],{"20Ai":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticClass:"home"},[this._v("\n   欢迎大家来到潭州教育web前端在线答题系统\n")])},staticRenderFns:[]};var r=n("VU/8")({name:"home",data:function(){return{}}},a,!1,function(e){n("j4/F")},"data-v-c42d442c",null);t.default=r.exports},"j4/F":function(e,t){}});
-//# sourceMappingURL=1.35e0b2f47841c2a56f59.js.map

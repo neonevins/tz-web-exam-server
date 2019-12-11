@@ -23,7 +23,11 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  token: {type: String}
+  token: {type: String},
+  avatarPath: {
+    type: String,
+    default: "avatar/default.jpg"
+  }
 })
 const UserTable = mongoose.model('user',userSchema)
 
