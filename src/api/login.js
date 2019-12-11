@@ -2,7 +2,7 @@
 const userMode = require("../db/userMode")
 const getHash = require("../utils/getHash")
 // 获取管理员hash值, 对比用
-let adminHash = require('./adminHash')
+let adminHash = require('../utils/getUserTableHash')
 async function login(req, res) {
   adminHash = await adminHash
   // 判断cookie存在
