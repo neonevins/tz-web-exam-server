@@ -13,11 +13,11 @@ async function getUserInfo(req, res) {
         })
         return
       }else{
-        let {avatarPath, sex, user, userType} = result
+        let {avatarPath, sex, user, userType,nickname} = result
         res.send({
           code: 0,
           message: '查询成功',
-          data: {avatarPath, sex, user, userType}
+          data: {avatarPath, sex, user, userType,nickname}
         })
       }
     }else{
@@ -40,11 +40,11 @@ async function getUserInfo(req, res) {
     })
     return
   }
-  let {avatarPath, sex, user, userType} = result
+  let {avatarPath, sex, user, userType, nickname} = result
   res.send({
     code: 0,
     message: '查询成功',
-    data: {avatarPath, sex, user, userType}
+    data: {avatarPath, sex, user, userType,nickname}
   })
   console.log(result)
 }
