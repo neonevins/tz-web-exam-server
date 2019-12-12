@@ -44,7 +44,7 @@ async function getUserInfo(req, res) {
   res.send({
     code: 0,
     message: '查询成功',
-    data: {avatarPath, sex, user, userType,nickname}
+    data: {avatarPath, sex, user, userType, nickname}
   })
   console.log(result)
 }

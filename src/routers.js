@@ -1,7 +1,11 @@
 const express = require("express")
 const router = express.Router()
 // api router
-
+router.get("/api/*", function (req, res, next) {
+  console.log("进入api组件")
+  // TODO 对访问api的权限进行控制, 验证token
+  next()
+})
 // 添加用户, 返回添加成功或者失败
 router.get("/api/addUser", require("./api/adduser.js"))
 
