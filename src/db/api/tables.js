@@ -22,6 +22,10 @@ const userSchema = new Schema({
   sex: {
     type: String,
     default: "female"
+  },
+  nickname: {
+    type: String,
+    default: "女装大佬"
   }
 })
 const UserTable = mongoose.model('user',userSchema)
