@@ -3,19 +3,6 @@ const mongoose = require("./db")
 
 const Schema = mongoose.Schema
 
-// // 管理员婊
-// const adminSchema = new Schema({
-//   user: {type: String},
-//   password: {type: String},
-//   disabled: {
-//     type: Boolean,
-//     default: true
-//   },
-//   token: {type: String}
-// })
-// const AdminTable = mongoose.model('admin',adminSchema)
-
-// 用户表
 const userSchema = new Schema({
   user: {type: String},
   password: {type: String},
@@ -27,6 +14,14 @@ const userSchema = new Schema({
   avatarPath: {
     type: String,
     default: "avatar/default.jpg"
+  },
+  userType: {
+    type: String,
+    default: "ordinary"
+  },
+  sex: {
+    type: String,
+    default: "female"
   }
 })
 const UserTable = mongoose.model('user',userSchema)

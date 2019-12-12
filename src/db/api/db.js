@@ -17,6 +17,9 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('数据库连接成功')
+  const initalzation = require("../../initalization")
+// 项目启动初始化, 新建 管理员账号
+  initalzation()
 });
 
 module.exports = mongoose
