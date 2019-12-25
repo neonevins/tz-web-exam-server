@@ -10,16 +10,16 @@ async function getList(){
     }
   })
 }
-async function update(){
-  await topicCategoryTable.create({name: 'html', backgroundPath: 'http://47.104.155.140/category/html.jpg'})
-  await topicCategoryTable.create({name: 'css', backgroundPath: 'http://47.104.155.140/category/css.jpg'})
-  await topicCategoryTable.create({name: 'javascript', backgroundPath: 'http://47.104.155.140/category/javascript.jpg'})
-  await topicCategoryTable.create({name: 'nodeJS', backgroundPath: 'http://47.104.155.140/category/nodeJS.jpg'})
-  await topicCategoryTable.create({name: 'react', backgroundPath: 'http://47.104.155.140/category/react.jpg'})
-  await topicCategoryTable.create({name: 'vue', backgroundPath: 'http://47.104.155.140/category/vue.jpg'})
-}
+// async function update(){
+//   await topicCategoryTable.create({name: 'html', backgroundPath: 'http://47.104.155.140/category/html.jpg'})
+//   await topicCategoryTable.create({name: 'css', backgroundPath: 'http://47.104.155.140/category/css.jpg'})
+//   await topicCategoryTable.create({name: 'javascript', backgroundPath: 'http://47.104.155.140/category/javascript.jpg'})
+//   await topicCategoryTable.create({name: 'nodeJS', backgroundPath: 'http://47.104.155.140/category/nodeJS.jpg'})
+//   await topicCategoryTable.create({name: 'react', backgroundPath: 'http://47.104.155.140/category/react.jpg'})
+//   await topicCategoryTable.create({name: 'vue', backgroundPath: 'http://47.104.155.140/category/vue.jpg'})
+// }
 
 module.exports = {
   getList,
-  update
+  // update
 }
