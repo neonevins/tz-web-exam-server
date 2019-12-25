@@ -13,7 +13,7 @@ const userSchema = new Schema({
   token: {type: String},
   avatarPath: {
     type: String,
-    default: "avatar/default.jpg"
+    default: "http://47.104.155.140/avatar/default.jpg"
   },
   userType: {
     type: String,
