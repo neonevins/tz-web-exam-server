@@ -1,11 +1,7 @@
 const express = require("express")
 const router = express.Router()
-// api router
-router.get("/api/*", function (req, res, next) {
-  console.log("进入api组件")
-  // TODO 对访问api的权限进行控制, 验证token
-  next()
-})
+const getUserTableHash = require('./utils/getUserTableHash')
+
 // 添加用户, 返回添加成功或者失败
 router.get("/api/addUser", require("./api/adduser.js"))
 
@@ -24,5 +20,24 @@ router.post("/api/upload", upload.single("file"), uploadHandle)
 
 // 根据cookie token查询用户信息
 router.get("/api/getUserInfo", require("./api/getUserInfo.js"))
+
+// api router
+router.get("/api/*", function (req, res, next) {
+  console.log("进入api组件")
+  // TODO 对访问api的权限进行控制, 验证token
+  getUserTableHash(req.cookies.token)
+  .then(result => {
+    if(result.code === 0){
+      next()
+    }else{
+      res.send(result)
+    }
+  })
+})
+
+// 返回 题型列表
+router.get("/api/topicCategoryList", require("./api/getTopicCategoryList.js"))
+
+
 
 module.exports = router

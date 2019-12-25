@@ -1,4 +1,4 @@
-// 管理员数据表
+// 用户数据表
 const mongoose = require("./db")
 
 const Schema = mongoose.Schema
@@ -30,6 +30,18 @@ const userSchema = new Schema({
 })
 const UserTable = mongoose.model('user',userSchema)
 
+
+// 题型数据列表
+const topicCategorySchema = new Schema({
+  name: {type: String},
+  backgroundPath: {type: String},
+})
+
+const topicCategoryTable = mongoose.model('topicCategory',topicCategorySchema)
+
+
+
 module.exports = {
-  UserTable
+  UserTable,
+  topicCategoryTable
 }
