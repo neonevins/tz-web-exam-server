@@ -7,6 +7,10 @@ app.use(helmet())
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
+// 解析bodyParser
+const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({extended: false}))
+
 const router = require("./src/routers")
 
 // 缓存静态资源
