@@ -2,8 +2,9 @@ const fs = require("fs")
 const path = require("path")
 const UserTable = require("../db/api/tables")
 function refreshInfo(req, res) {
+
   const {nickname, sex, avatarPath} = req.body
-  console.log(nickname, sex, avatarPath)
+  res.send({nickname, sex, avatarPath})
   // if(avatarPath.length > 100){
   //   // 后缀
   //   let extra = /^data:image\/(?<extra>\w+);base64,/.exec(avatarPath).groups.extra
