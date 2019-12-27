@@ -41,8 +41,11 @@ router.get("/api/topicCategoryList", require("./api/getTopicCategoryList.js"))
 // 根据cookie token查询用户信息
 router.get("/api/getUserInfo", require("./api/getUserInfo.js"))
 
+// 上传更新用户的信息
+router.post("/api/goudan", require("./api/refreshInfo.js"))
+
 // 上传图片
 const {upload, uploadHandle} = require("./api/upload.js")
-router.post("/api/upload", upload.single("file"), uploadHandle)
+// router.post("/api/upload", upload.single("file"), uploadHandle)
 
 module.exports = router
