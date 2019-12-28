@@ -6,8 +6,7 @@ const getUserTableHash = require('./utils/getUserTableHash')
 router.get("/api/login", require("./api/login.js"))
 
 // api router
-router.get("/api/*", function (req, res, next) {
-  console.log("进入api组件")
+router.all("/api/*", function (req, res, next) {
   // TODO 对访问api的权限进行控制, 验证token
   getUserTableHash(req.cookies.token)
     .then(result => {
