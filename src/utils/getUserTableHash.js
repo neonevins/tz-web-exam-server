@@ -4,7 +4,7 @@ const {UserTable} = require("../db/api/tables")
 // console.log(AdminTable)
 async function getUserTableHash(token){
   const  result = await UserTable.findOne({token})
-  console.log(result)
+  // console.log(result)
   // const admin = {user, password}
   if(!result) {
     return {
