@@ -13,7 +13,6 @@ async function checktoken(req, res) {
   }
 
   let result = await getUserTableHash(token)
-  console.log(result)
   res.send(result)
 
 

@@ -9,7 +9,6 @@ app.use(cookieParser())
 
 // 解析bodyParser
 const bodyParser = require("body-parser")
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
@@ -26,7 +25,7 @@ app.all("*",function (req, res, next) {
   res.header({
     'Access-Control-Allow-Credentials': true,
     'Access-Control-Allow-Origin': req.headers.origin || '*',
-    'Access-Control-Allow-Headers': 'content-type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
     'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
     'Content-Type': 'application/json; charset=utf-8'
   })
