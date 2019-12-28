@@ -20,7 +20,7 @@ async function login(req, res) {
       const {user, password} = req.query
       let hash = getHash({user,password})
       if(msg.code === 0){
-        res.cookie("token",hash,{maxAge: 900000, httpOnly: true});
+        res.cookie("token",hash,{maxAge: 1000*60*60*24, httpOnly: true});
       }else{
         hash = ""
       }
