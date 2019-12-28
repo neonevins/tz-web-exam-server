@@ -3,7 +3,7 @@ const path = require("path")
 const {UserTable} = require("../db/api/tables")
 async function refreshInfo(req, res) {
 
-  const {nickname, sex, avatarPath} = req.body
+  let {nickname, sex, avatarPath} = req.body
   console.log({nickname, sex, avatarPath})
   // res.send({nickname, sex, avatarPath})
 
@@ -12,6 +12,8 @@ async function refreshInfo(req, res) {
   await UserTable.updateOne(
     {token:req.cookies.token},
     {$set:{nickname, sex, avatarPath}})
+  avatarPath = avatarPath.replace(/\+/g, "%2B");
+  avatarPath = avatarPath.replace(/\&/g, "%26");
   res.send({
     code: 0,
     msg: "更新成功",
