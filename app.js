@@ -36,8 +36,8 @@ app.all("*",function (req, res, next) {
 
 // 解析bodyParser
 const bodyParser = require("body-parser")
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json({limit: '2mb'}))
+app.use(bodyParser.urlencoded({limit: '2mb',extended: false}))
 
 
 app.use(router)
