@@ -7,10 +7,6 @@ app.use(helmet())
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
-// 解析bodyParser
-const bodyParser = require("body-parser")
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
 
 const router = require("./src/routers")
 
@@ -24,18 +20,25 @@ app.use(express.static(path.join(__dirname, 'publicDoc')))
 app.all("*",function (req, res, next) {
   res.header({
     'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Origin': req.headers.origin || '*',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
     'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
     'Content-Type': 'application/json; charset=utf-8'
   })
   if( req.method === "OPTIONS" ) {
-    res.send(200)
+    res.sendStatus(200)
     console.log("has option")
   } else {
+    console.log("已经完成跨域")
     next()
   }
 })
+
+// 解析bodyParser
+const bodyParser = require("body-parser")
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+
 
 app.use(router)
 
