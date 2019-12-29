@@ -1,27 +1,12 @@
 const express = require("express")
 const router = express.Router()
-const getUserTableHash = require('./utils/getUserTableHash')
 
 // 用户登录验证
 router.get("/api/login", require("./api/login.js"))
 
 // api router
-router.all("/api/*", function (req, res, next) {
-  // TODO 对访问api的权限进行控制, 验证token
-  getUserTableHash(req.cookies.token)
-    .then(result => {
-      if(result && result.code === 0){
-        console.log("go next")
-        next()
-      }else{
-        res.send({
-          code: 1,
-          message: "token无效或者cookie无效",
-          data: {cookie: {}}
-        })
-      }
-    })
-})
+// 验证用户的权限
+router.all("/api/*", require("./api/verify"))
 
 // 添加用户, 返回添加成功或者失败
 // TODO 目前功能关闭
