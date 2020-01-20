@@ -12,7 +12,7 @@
 *           ***题目所需的代码
 *   options : 必须，[string,string,…]
 *           ***选项数组，每一项为字符串
-*   rightOption : 必须，[number,…]
+*   rightOptions : 必须，[number,…]
 *           ***正确答案数组，每一项为数字（正确选项对应的序号），单选也需要传入数组但只需要一个序号数据
 *   analysis ： 可选，string
 *           ***题目解析，默认"略"
@@ -24,20 +24,20 @@ const question = require("../db/api/questions");
 
 module.exports = (req,res)=>{
     let {
-        type,title,code="",options,rightOption,analysis
+        type,title,code="",options,rightOptions,analysis
     } = JSON.parse({...req.query,...req.body}.value);
 
     if (
         type
         && title
         && Array.isArray(options)
-        && Array.isArray(rightOption)
+        && Array.isArray(rightOptions)
         && options.length
-        && rightOption.length
+        && rightOptions.length
     ){
         question
             .create({
-                type,title,code,options,rightOption:rightOption.map(v=>v*1),analysis
+                type,title,code,options,rightOptions:rightOptions.map(v=>v*1),analysis
             })
             .then(r =>{
                 res.send({
