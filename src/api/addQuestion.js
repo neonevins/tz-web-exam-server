@@ -29,7 +29,7 @@ module.exports = (req,res)=>{
 
     question
         .create({
-            id,type,title,code,options,rightOption,analysis
+            type,title,code,options,rightOption,analysis
         })
         .then(r =>{
             res.send({
