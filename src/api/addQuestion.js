@@ -25,28 +25,40 @@ const question = require("../db/api/questions");
 module.exports = (req,res)=>{
     let {
         type,title,code="",options,rightOption,analysis
-    } = {...req.query,...req.body};
+    } = JSON.parse({...req.query,...req.body}.value);
 
-    console.log(req.query);
-    console.log(req.body);
-
-    console.log(options);
-    console.log(rightOption);
-    question
-        .create({
-            type,title,code,options,rightOption,analysis
-        })
-        .then(r =>{
-            res.send({
-                code : 0,
-                message : "添加成功"
+    if (
+        type
+        && title
+        && Array.isArray(options)
+        && Array.isArray(rightOption)
+        && options.length
+        && rightOption.length
+    ){
+        question
+            .create({
+                type,title,code,options,rightOption,analysis
+            })
+            .then(r =>{
+                res.send({
+                    code : 0,
+                    message : "添加成功"
+                });
+            })
+            .catch(err=>{
+                res.send({
+                    code : 1,
+                    message : "添加失败",
+                    data : err
+                });
             });
-        })
-        .catch(err=>{
-            res.send({
-                code : 1,
-                message : "添加失败",
-                data : err
-            });
+    }else{
+        res.send({
+            code : 1,
+            message : "添加失败"
         });
+    }
+
+
+
 };
