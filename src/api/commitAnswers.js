@@ -1,11 +1,22 @@
 /*
-* 传入数组answers字段   每一项为对象，包含属性id:Number answer:Array
-* eg:
+* 前端传入数据格式：
+* {
+*   answers : 必须，[object]
+*               ***数组，其中每一项为对象，对象需要两个属性
+*                   {
+*                       _id : 必须，string
+*                               ***该题对应的_id（在获取题目列表时会返回_id到前端）
+*                       answer : 必须，[number,…]
+*                               ***用户所选答案的序号列表
+*                   }
+* }
 *
+*
+* eg：
 * {
 *   answers : [
-*       {id:1111,answer:[0]},
-*       {id:1222,answer:[0,1]}
+*       {_id:"123456",answer:[0]},
+*       {_id:"122267",answer:[0,1]}
 *   ]
 * }
 *
