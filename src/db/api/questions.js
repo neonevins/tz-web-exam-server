@@ -4,7 +4,6 @@ const mongoose = require("./db");
 const Schema = mongoose.Schema;
 
 const questionSchema = new Schema({
-    id : {type:Number,require:true},
     type : {type: String,require: true},
     title : {type: String,require: true},
     code : {type: String},

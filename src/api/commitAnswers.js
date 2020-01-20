@@ -21,13 +21,13 @@ module.exports = async (req,res)=>{
             if (
                 v!==null
                 && typeof(v)==="object"
-                && typeof v.id === "number"
+                && v._id
                 && typeof Array.isArray(v.answer)
             ){
                 let a = {};
                 let data;
                 try{
-                    data = await question.findOne({id:v.id});
+                    data = await question.findById(v.id);
                     if (data.length){
                         a.code = 0;
                         let rightAnswer = [...data.rightOptions];
