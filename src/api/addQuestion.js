@@ -27,6 +27,9 @@ module.exports = (req,res)=>{
         type,title,code="",options,rightOption,analysis
     } = {...req.query,...req.body};
 
+    console.log(req.query);
+    console.log(req.body);
+
     console.log(options);
     console.log(rightOption);
     question
