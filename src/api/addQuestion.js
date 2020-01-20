@@ -27,6 +27,8 @@ module.exports = (req,res)=>{
         type,title,code="",options,rightOption,analysis
     } = {...req.query,...req.body};
 
+    console.log(options);
+    console.log(rightOption);
     question
         .create({
             type,title,code,options,rightOption,analysis
