@@ -1,16 +1,13 @@
 /*
-*
-* 传入字符串type字段
-* 允许的取值为 ： "HTML"  "JS"  "CSS"  "VUE"  "REACT"   "NODE"
-* 不区分大小写
+* 获取题目列表
+* 前端传入数据格式：
+* {
+*   type : 必须，string
+*           ***要获取的题目类型，可选："HTML" "CSS" "JS" "VUE" "REACT" "NODE"
+* }
 *
 * eg:
-*
 *   {type:"HTML"}
-* 或者
-*   {type:"JS"}
-*
-*
 * */
 
 
