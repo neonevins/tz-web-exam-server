@@ -37,7 +37,7 @@ module.exports = (req,res)=>{
     ){
         question
             .create({
-                type,title,code,options,rightOption,analysis
+                type,title,code,options,rightOption:rightOption.map(v=>v*1),analysis
             })
             .then(r =>{
                 res.send({
