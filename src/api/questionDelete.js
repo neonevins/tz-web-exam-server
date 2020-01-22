@@ -10,6 +10,16 @@
 * */
 const question = require("../db/api/questions");
 module.exports = async (req,res)=>{
+    //验证
+    let userData = await UserTable.findOne({token:req.cookie.token});
+    if (!userData || userData.userType!=="admin"){
+        res.send({
+            code: 4,
+            message: "权限不足,禁止访问"
+        });
+        return;
+    }
+
     let {_id} = req.query;
 
     let info = {};
