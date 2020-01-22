@@ -55,7 +55,7 @@ module.exports = (req,res)=>{
                 }else{
                     res.send({
                         code : 1,
-                        message : "查询失败，请传入正确的type字段"
+                        message : "查询失败，题库不足"
                     });
                 }
             })
