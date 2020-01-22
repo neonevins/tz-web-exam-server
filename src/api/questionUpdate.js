@@ -26,7 +26,8 @@
 const question = require("../db/api/questions");
 module.exports = async (req,res)=>{
     let {_id,data} = req.query;
-
+    data = JSON.parse(data)
+    console.log(_id, data)
     let result = {};
     if (
         _id
@@ -35,13 +36,14 @@ module.exports = async (req,res)=>{
         && typeof data === "object"
     ){
         try{
-            let data = await question.updateOne({_id},data);
-            if (data.n){
+            let d = await question.updateOne({_id},data);
+            if (d.n){
                 result = {code:0,message:"更新成功。"};
             }else{
-                result = {code:0,message:"操作成功，但是未查找到数据",data};
+                result = {code:0,message:"操作成功，但是未查找到数据",d};
             }
         }catch (e) {
+            console.log(e)
             result = {code:1,message:"更新失败o(╥﹏╥)o",data:e}
         }
 
