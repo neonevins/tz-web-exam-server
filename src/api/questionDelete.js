@@ -10,9 +10,10 @@
 * */
 const question = require("../db/api/questions");
 module.exports = async (req,res)=>{
-    let _id = req.query;
+    let {_id} = req.query;
 
     let info = {};
+    console.log(_id)
     if (
         _id
         && typeof _id === "string"
