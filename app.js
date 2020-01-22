@@ -27,9 +27,7 @@ app.all("*",function (req, res, next) {
   })
   if( req.method === "OPTIONS" ) {
     res.sendStatus(200)
-    console.log("has option")
   } else {
-    console.log("已经完成跨域")
     next()
   }
 })

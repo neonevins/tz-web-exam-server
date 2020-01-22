@@ -6,7 +6,7 @@ function verify(req, res, next) {
   getUserTableHash(req.cookies.token)
   .then(result => {
     if(result && result.code === 0){
-      console.log("go next")
+      console.log("权限验证成功")
       next()
     }else{
       res.send({
