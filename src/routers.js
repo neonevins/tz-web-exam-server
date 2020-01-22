@@ -34,13 +34,13 @@ const {upload, uploadHandle} = require("./api/upload.js");
 
 /*管理员题目操作*/
 /*添加题目*/
-router.post("/api/questionAdd",require("./api/questionAdd"));
+router.get("/api/questionAdd",require("./api/questionAdd"));
 /*查询所有题目*/
-router.post("/api/questionSearch",require("./api/questionSearch"));
+router.get("/api/questionSearch",require("./api/questionSearch"));
 /*修改题目*/
-router.post("/api/questionUpdate",require("./api/questionUpdate"));
+router.get("/api/questionUpdate",require("./api/questionUpdate"));
 /*删除题目*/
-router.post("/api/questionDelete",require("./api/questionDelete"));
+router.get("/api/questionDelete",require("./api/questionDelete"));
 
 
 /*返回十道题*/
