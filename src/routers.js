@@ -32,13 +32,20 @@ router.post("/api/goudan", require("./api/refreshInfo.js"));
 const {upload, uploadHandle} = require("./api/upload.js");
 // router.post("/api/upload", upload.single("file"), uploadHandle)
 
-/*后台管理系统添加题目*/
-router.post("/api/addQuestion",require("./api/addQuestion"));
+/*管理员题目操作*/
+/*添加题目*/
+router.post("/api/questionAdd",require("./api/questionAdd"));
+/*查询所有题目*/
+router.post("/api/questionSearch",require("./api/questionSearch"));
+/*修改题目*/
+router.post("/api/questionUpdate",require("./api/questionUpdate"));
+/*删除题目*/
+router.post("/api/questionDelete",require("./api/questionDelete"));
+
 
 /*返回十道题*/
-router.get("/api/getQuestionsList",require("./api/getQuestionsList"));
-
+router.get("/api/questionGet",require("./api/questionGet"));
 /*答案提交*/
-router.post("/api/commitAnswers",require("./api/commitAnswers"));
+router.post("/api/answerCommit",require("./api/answerCommit"));
 
 module.exports = router;
