@@ -2,7 +2,6 @@
 const getUserTableHash = require('../utils/getUserTableHash')
 
 function verify(req, res, next) {
-  // TODO 对访问api的权限进行控制, 验证token
   getUserTableHash(req.cookies.token)
   .then(result => {
     if(result && result.code === 0){

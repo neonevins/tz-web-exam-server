@@ -4,16 +4,16 @@ const getHash = require("../utils/getHash")
 // 获取管理员hash值, 对比用
 let adminHash = require('../utils/getUserTableHash')
 async function login(req, res) {
-  adminHash = await adminHash
-  // 判断cookie存在
-  if(req.cookies.token === adminHash){
-    res.send({
-      code: 0,
-      message: "用户已经登录",
-      data: {cookie: {token: adminHash}}
-    })
-    return
-  }
+  // adminHash = await adminHash
+  // // 判断cookie存在
+  // if(req.cookies.token === adminHash){
+  //   res.send({
+  //     code: 0,
+  //     message: "用户已经登录",
+  //     data: {cookie: {token: adminHash}}
+  //   })
+  //   return
+  // }
   userMode.checkUser(req.query)
     .then(msg => {
       // 写入cookie

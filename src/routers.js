@@ -11,7 +11,7 @@ router.all("/api/*", require("./api/verify"));
 
 // 添加用户, 返回添加成功或者失败
 // TODO 目前功能关闭
-// router.get("/api/addUser", require("./api/adduser.js"))
+router.get("/api/addUser", require("./api/adduser.js"))
 
 // 检查cookie的token或者传入的token, 返回用户状态
 router.get("/api/checkToken", require("./api/checktoken.js"));
