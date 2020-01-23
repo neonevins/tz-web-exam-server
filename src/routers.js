@@ -41,7 +41,8 @@ router.get("/api/questionSearch",require("./api/questionSearch"));
 router.get("/api/questionUpdate",require("./api/questionUpdate"));
 /*删除题目*/
 router.get("/api/questionDelete",require("./api/questionDelete"));
-
+/*用户查询*/
+router.get("/api/userSearch", require("./api/userSearch"))
 
 /*返回十道题*/
 router.get("/api/questionGet",require("./api/questionGet"));
