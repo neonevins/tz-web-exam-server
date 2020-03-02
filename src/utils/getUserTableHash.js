@@ -13,11 +13,14 @@ async function getUserTableHash(token){
       data: {cookie: {token}}
     }
   }else{
-    const {user, password} = result
+    const {user, password, userType} = result
     return {
       code: 0,
       message: "验证成功",
-      data: {cookie: {token:getHash({user, password})}}
+      data: {
+        cookie: {token:getHash({user, password})},
+        userType
+      }
     }
   }
 }
